@@ -1,0 +1,26 @@
+apply plugin: 'java'
+apply plugin: 'org.springframework.boot'
+
+dependencies {
+
+    compile("org.springframework.boot:spring-boot:$springBootVersion")
+
+    compile("org.springframework.cloud:spring-cloud-starter-eureka-server:$eurekaVersion")
+    
+    //fastjson
+    compile("com.alibaba:fastjson:$fastjsonVersion")
+
+    testCompile("junit:junit:$springBootVersion")
+
+}
+
+
+dependencyManagement {
+    imports {
+        mavenBom "org.springframework.cloud:spring-cloud-dependencies:Brixton.RELEASE"
+    }
+}
+
+tasks.withType(JavaCompile) {
+    options.encoding = "UTF-8"
+}

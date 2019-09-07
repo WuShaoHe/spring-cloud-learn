@@ -1,0 +1,22 @@
+apply plugin: 'java'
+apply plugin: 'org.springframework.boot'
+
+dependencies {
+
+    compile("org.springframework.boot:spring-boot:$springBootVersion")
+
+    compile("org.springframework.cloud:spring-cloud-starter-eureka-server:$eurekaVersion")
+
+    compile ("com.netflix.ribbon:ribbon-core:$ribbonVersion")
+    compile ("com.netflix.ribbon:ribbon-httpclient:$ribbonVersion")
+    
+    //fastjson
+    compile("com.alibaba:fastjson:$fastjsonVersion")
+
+    testCompile("junit:junit:$springBootVersion")
+
+}
+
+tasks.withType(JavaCompile) {
+    options.encoding = "UTF-8"
+}
